@@ -1,6 +1,9 @@
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
+2dGame
+2dGame.cbp
+cmake-build-debug/
 Testing
 Makefile
 cmake_install.cmake
