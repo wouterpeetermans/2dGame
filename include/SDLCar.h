@@ -12,12 +12,17 @@ namespace SDLSpace{
 
 class SDLCar : public GameSpace::Car {
     public:
-        explicit SDLCar(std::shared_ptr<SDLDrawEngine>);
-        void Draw() override;
+        explicit SDLCar(std::shared_ptr<SDLDrawEngine>, int Xpos, int Ypos);
+        void Update() override;
         ~SDLCar() override;
+
 
     private:
         std::shared_ptr<SDLDrawEngine> drawEngine;
+        SDL_Texture* carSheet;
+        SDL_Rect posRect;
+        SDL_Rect srcRect;
+        void draw(SDL_Renderer* renderer);
     };
 
 }

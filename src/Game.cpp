@@ -1,32 +1,37 @@
 //
 // Created by wouter on 3/4/19.
 //
-
-#include <include/Game.h>
+#include "Car.h"
 
 #include "Game.h"
 
 namespace GameSpace {
-    Game::Game(std::unique_ptr<AFactory> factory) {
-        this->factory = std::move(factory);
+    Game::Game(std::shared_ptr<AFactory> factory) {
+        this->factory = factory;
     }
 
-    void Game::Update(std::shared_ptr<std::queue<std::shared_ptr<GameSpace::InputEvent>>> eventQueue,
-                      unsigned int timePassed) {
-
-    }
 
     void Game::Init() {
-
+        this->drawEngine = factory->GetDrawEngine();
+        drawEngine->Init();
     }
 
     void Game::Run() {
+        bool quit = false;
+        std::shared_ptr<GameObject> testcar = factory->CreateCar(0,0);
+        while (!drawEngine->Update()){
+            testcar->Update();
+        }
+    }
+
+    void Game::Quit() {
 
     }
 
-    void Game::Draw() {
+    Game::~Game() {
 
     }
+
 
 }
 

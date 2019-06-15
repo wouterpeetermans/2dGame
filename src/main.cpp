@@ -6,7 +6,10 @@
 #include <memory>
 
 int main(){
-    auto factory = std::make_unique<SDLSpace::SDLFactory>(SDLSpace::SDLFactory());
-    auto game = std::make_unique<GameSpace::Game>(GameSpace::Game(std::move(factory)));
+    auto factory = std::make_shared<SDLSpace::SDLFactory>();
+    auto game = GameSpace::Game(factory);
+    game.Init();
+    game.Run();
+    game.Quit();
 }
 

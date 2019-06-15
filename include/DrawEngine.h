@@ -10,24 +10,32 @@
 #include <queue>
 
 namespace GameSpace {
-    //! Interface IGameLoopController
+    //! Interface DrawEngine
     /*!
-     * This interface provides a way to control the game loop from outside the Game class. This is a necessity to let
-     * for example SDL control the speed of the gameloop.
+     * This is the interface to the Drawing system it contains functions necessary to communicate with the rendering
+     * system.
      */
-    class IGameLoopController {
+    class DrawEngine {
     public:
         //! Init function taking a game argument
         /*!
-         * initialization function that loads all the things necessary to start up the gameloop
-         * @param game this should be the game to which the gameloopcontroller has effect.
+         * initialization function that loads all the things necessary
          */
-        //virtual void Init(std::shared_ptr<Game> game)=0;//todo: instead of game pass function pointers because otherwise header files collide
-        //! Run function exits when game is over
+        virtual void Init()=0;
+        //! Update function shows all drawn objects to screen
         /*!
-         * This function is blocking and will keep running the game loop. See implementations for when it stops
+         * This function should draw all GameObjects that called their draw functions since this function was last ran.
+         * It will then proceed to set everything up so that a new set of objects can be drawn.
+         * It will block if needed to cap the framerate.
+         * It will return a non zero status in the case that the program should end.
          */
-        virtual void Run()=0;
+        virtual int Update()=0;
+
+        //! Destructor
+        /*!
+        * virtual destructor ensures complete destruction
+        */
+        virtual ~DrawEngine()= default;
     };
 }
 

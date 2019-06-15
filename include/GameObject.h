@@ -9,10 +9,14 @@
 
 namespace GameSpace{
     class GameObject {
-            public:
-            virtual void Draw()=0;
-            virtual void Update()=0;
-            virtual ~GameObject()=default;
+    public:
+        GameObject(int Xpos, int Ypos);
+        virtual void Update()=0;
+        virtual ~GameObject()= default;
+
+    protected:
+        int Xpos;
+        int Ypos;
     };
 }
 

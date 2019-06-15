@@ -8,4 +8,8 @@
 
 namespace GameSpace {
 
+    GameObject::GameObject(int Xpos, int Ypos) {
+        this->Xpos = Xpos;
+        this->Ypos = Ypos;
+    }
 }

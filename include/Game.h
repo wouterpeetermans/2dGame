@@ -9,7 +9,7 @@
 #include <queue>
 #include "AFactory.h"
 #include "InputEvent.h"
-#include "IGameLoopController.h"
+#include "DrawEngine.h"
 
 
 namespace GameSpace{
@@ -20,16 +20,16 @@ namespace GameSpace{
      */
     class Game {
     public:
-        explicit Game(std::unique_ptr<AFactory> factory);
+        explicit Game(std::shared_ptr<AFactory> factory);
         void Init();
         void Run();
-        void Update(std::shared_ptr<std::queue<std::shared_ptr<InputEvent>>> eventQueue, unsigned int timePassed);
-        void Draw();
+        void Quit();
+        ~Game();
 
 
     private:
-        std::unique_ptr<AFactory> factory;
-        std::shared_ptr<IGameLoopController> gameLoopController;
+        std::shared_ptr<AFactory> factory;
+        std::shared_ptr<DrawEngine> drawEngine;
 
 
 

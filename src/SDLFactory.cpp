@@ -2,14 +2,15 @@
 // Created by wouter on 3/11/19.
 //
 
-#include <include/SDLCar.h>
-#include <include/SDLFactory.h>
+
+#include "SDLCar.h"
+#include "SDLFactory.h"
 
 #include "SDLFactory.h"
 
 namespace SDLSpace {
-    std::shared_ptr<GameSpace::GameObject> SDLFactory::CreateCar() {
-        return std::shared_ptr<GameSpace::GameObject>(new SDLCar(drawEngine));
+    std::shared_ptr<GameSpace::GameObject> SDLFactory::CreateCar(int Xpos, int Ypos) {
+        return std::make_shared<SDLSpace::SDLCar>(drawEngine,Xpos,Ypos);
     }
 
     SDLFactory::~SDLFactory() {
@@ -17,11 +18,15 @@ namespace SDLSpace {
     }
 
     SDLFactory::SDLFactory() {
-        this->drawEngine = std::make_shared<SDLDrawEngine>(SDLDrawEngine());
+        this->drawEngine = std::make_shared<SDLDrawEngine>();
     }
 
-//    std::shared_ptr<GameSpace::IGameLoopController> SDLFactory::CreateGameLoop() {
-//        return std::allocate_shared<GameSpace::IGameLoopController>(drawEngine);
+    std::shared_ptr<GameSpace::DrawEngine> SDLFactory::GetDrawEngine() {
+        return drawEngine;
+    }
+
+//    std::shared_ptr<GameSpace::DrawEngine> SDLFactory::CreateGameLoop() {
+//        return std::allocate_shared<GameSpace::DrawEngine>(drawEngine);
 //    }
 }
 

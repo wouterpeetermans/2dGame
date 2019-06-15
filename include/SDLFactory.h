@@ -13,10 +13,10 @@ namespace SDLSpace {
 
     public:
         SDLFactory();
-        virtual ~SDLFactory() override;
-        std::shared_ptr<GameSpace::GameObject> CreateCar() override;
+        ~SDLFactory() override;
+        std::shared_ptr<GameSpace::GameObject> CreateCar(int Xpos, int Ypos) override;
 
-        //std::shared_ptr<GameSpace::IGameLoopController> CreateGameLoop() override;
+        std::shared_ptr<GameSpace::DrawEngine> GetDrawEngine() override;
 
     private:
         std::shared_ptr<SDLDrawEngine> drawEngine;

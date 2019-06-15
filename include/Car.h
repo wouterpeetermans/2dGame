@@ -11,7 +11,7 @@
 namespace GameSpace{
     class Car: public GameObject {
     public:
-        Car() = default;
+        Car(int Xpos, int Ypos);
         virtual ~Car() override;
 
         virtual void Update() override;

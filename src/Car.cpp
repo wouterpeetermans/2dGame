@@ -15,6 +15,10 @@ namespace GameSpace{
     Car::~Car() {
 
     }
+
+    Car::Car(int Xpos, int Ypos) : GameObject(Xpos, Ypos) {
+
+    }
 }
 
 
