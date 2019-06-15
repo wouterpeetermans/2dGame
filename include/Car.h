@@ -14,7 +14,8 @@ namespace GameSpace{
         Car(int Xpos, int Ypos);
         virtual ~Car() override;
 
-        virtual void Update() override;
+        virtual void Update(int timeTook) override;
+
     };
 }
 

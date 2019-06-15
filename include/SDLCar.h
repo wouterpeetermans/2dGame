@@ -13,11 +13,15 @@ namespace SDLSpace{
 class SDLCar : public GameSpace::Car {
     public:
         explicit SDLCar(std::shared_ptr<SDLDrawEngine>, int Xpos, int Ypos);
-        void Update() override;
+        void Update(int timeTook) override;
         ~SDLCar() override;
 
+    bool HasCollision(std::shared_ptr<GameObject> object) override;
 
-    private:
+    void DetectCollisions(std::shared_ptr<std::list<std::shared_ptr<GameObject>>> ColliderList) override;
+
+
+private:
         std::shared_ptr<SDLDrawEngine> drawEngine;
         SDL_Texture* carSheet;
         SDL_Rect posRect;

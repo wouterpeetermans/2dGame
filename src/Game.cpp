@@ -20,7 +20,7 @@ namespace GameSpace {
         bool quit = false;
         std::shared_ptr<GameObject> testcar = factory->CreateCar(0,0);
         while (!drawEngine->Update()){
-            testcar->Update();
+            testcar->Update(0);
         }
     }
 

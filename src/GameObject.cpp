@@ -12,4 +12,12 @@ namespace GameSpace {
         this->Xpos = Xpos;
         this->Ypos = Ypos;
     }
+
+    int GameObject::getXpos() const {
+        return Xpos;
+    }
+
+    int GameObject::getYpos() const {
+        return Ypos;
+    }
 }

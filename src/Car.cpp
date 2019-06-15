@@ -8,7 +8,7 @@
 
 namespace GameSpace{
 
-    void Car::Update() {
+    void Car::Update(int timeTook) {
 
     }
 
@@ -19,6 +19,7 @@ namespace GameSpace{
     Car::Car(int Xpos, int Ypos) : GameObject(Xpos, Ypos) {
 
     }
+
 }
 
 

@@ -21,7 +21,7 @@ namespace SDLSpace {
         this->srcRect.w = 256;
     }
 
-    void SDLCar::Update(){
+    void SDLCar::Update(int timeTook) {
         draw(drawEngine->getRenderer());
     }
 
@@ -31,6 +31,14 @@ namespace SDLSpace {
 
     SDLCar::~SDLCar() {
         SDL_DestroyTexture(carSheet);
+    }
+
+    bool SDLCar::HasCollision(std::shared_ptr<GameSpace::GameObject> object) {
+        return false; //todo implement this
+    }
+
+    void SDLCar::DetectCollisions(std::shared_ptr<std::list<std::shared_ptr<GameSpace::GameObject>>> ColliderList) {
+     //todo implement collision detection
     }
 
 

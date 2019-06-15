@@ -67,6 +67,14 @@ namespace SDLSpace{
         return newTexture; //return something
     }
 
+    SDL_Texture* SDLDrawEngine::CreateTexture(int width, int height){
+        SDL_Texture* newTexture = SDL_CreateTexture(screenRenderer, SDL_GetWindowPixelFormat(window), SDL_TEXTUREACCESS_TARGET, width, height);
+        if (newTexture == NULL) {
+            std::cout << "creating a texture failed" << '\n';
+        }
+        return newTexture;
+    }
+
     int SDLDrawEngine::Update() {
 //        bool quit = false; //this bool tels if the user has quited the hard game already
         SDL_Event e;// a place to store an event of some type
