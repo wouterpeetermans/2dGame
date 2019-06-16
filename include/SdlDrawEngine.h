@@ -32,8 +32,6 @@ namespace SDLSpace {
 
         SDL_Renderer* getRenderer();
 
-        void resetRendererTexture();
-
         SDL_Texture* CreateTexture(int width, int height);
 
         SDL_Point convertGameToScreenCoordinates(int xPos, int yPos);
@@ -45,6 +43,8 @@ namespace SDLSpace {
         void unSubscribeFromEvents(ISdlEventListener* listener);
 
         void setZeroOfset(int ofset);
+
+        SDL_Window* getWindow();
 
     private:
         SDL_Window* window; //!< this wil be the pointer to the SDL window we are using

@@ -7,6 +7,7 @@
 
 #include "GameObject.h"
 #include "DrawEngine.h"
+#include "Scene.h"
 #include <memory>
 
 
@@ -17,6 +18,7 @@ namespace GameSpace {
         virtual std::shared_ptr<DrawEngine> GetDrawEngine()=0;
         virtual std::shared_ptr<GameObject> CreateRoad(std::shared_ptr<GameObject> player)=0;
         virtual std::shared_ptr<GameObject> CreateMiniVan(int xPos, int yPos, int speed)=0;
+        virtual std::shared_ptr<Scene> CreateGameScene(std::shared_ptr<AFactory> factory) =0;
         virtual ~AFactory()= default;
     };
 }

@@ -35,8 +35,8 @@ namespace SDLSpace {
             }
         }
         eventObservers = std::make_shared<std::list<ISdlEventListener*>>();
-        defaultRenderTexture = CreateTexture(1500,6144);
-        SDL_SetRenderTarget(screenRenderer,defaultRenderTexture);
+        //defaultRenderTexture = CreateTexture(1500, 6144);
+        SDL_SetRenderTarget(screenRenderer, defaultRenderTexture);
     }
 
     SdlDrawEngine::~SdlDrawEngine() {
@@ -77,53 +77,16 @@ namespace SDLSpace {
     }
 
     int SdlDrawEngine::Update() {
-//        bool quit = false; //this bool tels if the user has quited the hard game already
         SDL_Event e;// a place to store an event of some type
-//
-//        while (!quit){
-//            unsigned int startTime=0 , currentTime=0 , timeTook=0;
-//
-//            startTime = SDL_GetTicks();//get wath time we started to cap the framerate
-//
-//            std::shared_ptr<std::queue<std::shared_ptr<GameSpace::InputEvent>>> eventQueue(new std::queue<std::shared_ptr<GameSpace::InputEvent>>());
-        while (SDL_PollEvent(&e) != 0) {//a loop to go over all the events the user managed to create in a fraction of a second
+        while (SDL_PollEvent(&e) !=
+               0) {//a loop to go over all the events the user managed to create in a fraction of a second
             if (e.type == SDL_QUIT) { //now I am able to use the litle cross on top of the window
                 return 1;
             }
-            for(ISdlEventListener* l : *eventObservers){
+            for (ISdlEventListener* l : *eventObservers) {
                 l->onEvent(&e);
             }
-//                //held.GetKeys(&e);//todo: implement the filling of the queue fully with events from sdl.
-//                eventQueue->push(std::shared_ptr<GameSpace::InputEvent>(new GameSpace::InputEvent(GameSpace::Backward,GameSpace::Pressed)));
         }
-
-
-        SDL_Rect vieuwPortRect, minimapRect, trackRect;
-        vieuwPortRect.h = 2048;
-        vieuwPortRect.w = 1500;
-        vieuwPortRect.x = 0;
-        vieuwPortRect.y = 4096;
-        minimapRect.h = 512;
-        minimapRect.w = 125;
-        minimapRect.x = 0;
-        minimapRect.y = 0;
-        int windowWith, windowHeight;
-        SDL_GetWindowSize(this->window,&windowWith,&windowHeight);
-        trackRect.h = windowHeight;
-        trackRect.w = trackRect.h * 375 / 512;
-        if((windowWith-minimapRect.w)<trackRect.w)
-            trackRect.w = windowWith-125;
-        trackRect.x = minimapRect.w;
-        trackRect.y = 0;
-
-        SDL_SetRenderTarget(screenRenderer,NULL);
-        SDL_RenderCopy(screenRenderer, defaultRenderTexture, &vieuwPortRect, &trackRect);
-        SDL_RenderCopy(screenRenderer,defaultRenderTexture, NULL, &minimapRect);
-
-        SDL_RenderPresent(screenRenderer);
-        SDL_RenderClear(screenRenderer);
-        resetRendererTexture();
-        SDL_RenderClear(screenRenderer);
         return 0;
     }
 
@@ -139,9 +102,6 @@ namespace SDLSpace {
         return point;
     }
 
-    void SdlDrawEngine::resetRendererTexture() {
-        SDL_SetRenderTarget(screenRenderer,defaultRenderTexture);
-    }
 
     int SdlDrawEngine::getTimeMs() {
         return SDL_GetTicks();
@@ -157,6 +117,10 @@ namespace SDLSpace {
 
     void SdlDrawEngine::setZeroOfset(int ofset) {
         zeroOfset = ofset;
+    }
+
+    SDL_Window* SdlDrawEngine::getWindow() {
+        return this->window;
     }
 }
 

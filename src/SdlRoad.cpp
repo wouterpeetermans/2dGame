@@ -39,7 +39,6 @@ namespace SDLSpace {
             SDL_RenderCopy(renderer, sourceTexture, &tempsrcRect, &tempDestRect);
         }
 
-        drawEngine->resetRendererTexture();
 
         this->srcRect.h = 6144;
         this->srcRect.w = 1500;

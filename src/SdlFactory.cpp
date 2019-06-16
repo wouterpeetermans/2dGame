@@ -7,6 +7,7 @@
 #include "SdlPlayer.h"
 #include "SdlMinivan.h"
 #include "SdlFactory.h"
+#include "SdlGameScene.h"
 
 
 namespace SDLSpace {
@@ -32,6 +33,10 @@ namespace SDLSpace {
 
     std::shared_ptr<GameSpace::GameObject> SdlFactory::CreateMiniVan(int xPos, int yPos, int speed) {
         return std::make_shared<SdlMinivan>(drawEngine, xPos,yPos,speed);
+    }
+
+    std::shared_ptr<GameSpace::Scene> SdlFactory::CreateGameScene(std::shared_ptr<AFactory> factory) {
+        return std::make_shared<SdlGameScene>(drawEngine, factory);
     }
 
 //    std::shared_ptr<GameSpace::DrawEngine> SdlFactory::CreateGameLoop() {

@@ -22,7 +22,7 @@ namespace GameSpace {
     }
 
     GameScene::GameScene(std::shared_ptr<AFactory> factory) {
-        this->objectList = std::shared_ptr<std::list<std::shared_ptr<GameObject>>>();
+        this->objectList = std::make_shared<std::list<std::shared_ptr<GameObject>>>();
         this->factory = factory;
         this->playerObject = factory->CreatePlayer(7);
         objectList->push_back(factory->CreateRoad(playerObject));

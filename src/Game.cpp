@@ -19,18 +19,14 @@ namespace GameSpace {
 
     void Game::Run() {
         bool quit = false;
-        std::shared_ptr<GameObject> testcar = factory->CreatePlayer(7);
-        std::shared_ptr<GameObject> testvan = factory->CreateMiniVan(0,0,7);
-        std::shared_ptr<GameObject> backdrop = factory->CreateRoad(testcar);
+        auto gameScene = factory->CreateGameScene(factory);
         bool isQuit = false;
         int startTime, stopTime, timeTook;
         startTime = stopTime = 0;
         while (!isQuit) {
             timeTook = stopTime - startTime;
             startTime = drawEngine->getTimeMs();
-            backdrop->Update(timeTook);
-            testcar->Update(timeTook);
-            testvan->Update(timeTook);
+            gameScene->Update(timeTook);
             if(drawEngine->Update())
                 isQuit = true;
             stopTime = drawEngine->getTimeMs();

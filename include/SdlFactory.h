@@ -25,6 +25,8 @@ namespace SDLSpace {
 
         std::shared_ptr<GameSpace::GameObject> CreateMiniVan(int xPos, int yPos, int speed) override;
 
+        std::shared_ptr<GameSpace::Scene> CreateGameScene(std::shared_ptr<AFactory> factory) override;
+
     private:
         std::shared_ptr<SdlDrawEngine> drawEngine;
     };
