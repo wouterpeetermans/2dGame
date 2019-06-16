@@ -14,9 +14,9 @@ namespace GameSpace{
     public:
         explicit Background1(std::shared_ptr<GameObject> player);
 
-        virtual void Update(int timeTook) override;
+        void Update(int timeTook) override;
 
-    private:
+    protected:
         std::shared_ptr<GameObject> player;
     };
 }

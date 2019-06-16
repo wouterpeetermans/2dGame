@@ -36,7 +36,6 @@ namespace SDLSpace{
                 }
             }
         }
-        std::cout << "first" <<"\n";
     }
 
     SDLDrawEngine::~SDLDrawEngine() {

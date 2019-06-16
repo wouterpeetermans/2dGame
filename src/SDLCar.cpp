@@ -22,6 +22,7 @@ namespace SDLSpace {
     }
 
     void SDLCar::Update(int timeTook) {
+        Car::Update(timeTook);
         draw(drawEngine->getRenderer());
     }
 

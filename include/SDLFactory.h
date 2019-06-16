@@ -18,6 +18,8 @@ namespace SDLSpace {
 
         std::shared_ptr<GameSpace::DrawEngine> GetDrawEngine() override;
 
+        std::shared_ptr<GameSpace::GameObject> CreateBackground1(std::shared_ptr<GameSpace::GameObject> player) override;
+
     private:
         std::shared_ptr<SDLDrawEngine> drawEngine;
     };
