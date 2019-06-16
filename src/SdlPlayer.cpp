@@ -5,6 +5,7 @@
 
 
 #include "SdlPlayer.h"
+#include "SpeedVector.h"
 
 namespace SDLSpace {
 
@@ -23,6 +24,7 @@ namespace SDLSpace {
 
         this->Ypos = 0; //todo remove
         this->Xpos = 0;
+        drawEngine->subscribeToEvents(this);
     }
 
     void SdlPlayer::Update(int timeTook) {
@@ -39,7 +41,48 @@ namespace SDLSpace {
     }
 
     SdlPlayer::~SdlPlayer() {
+        drawEngine->unSubscribeFromEvents(this);
         SDL_DestroyTexture(carSheet);
+    }
+
+    void SdlPlayer::onEvent(SDL_Event* e) {
+        GameSpace::SpeedVector leftVector(-3,0);
+        GameSpace::SpeedVector rightVector(3,0);
+        if(e->type == SDL_KEYDOWN) {//keys pressed
+            switch (e->key.keysym.sym) {
+                case SDLK_RIGHT:
+                    //pos++;
+                    speedVector->xZero();
+                    *speedVector.get() += rightVector;
+                    break;
+                case SDLK_LEFT:
+                    //pos--;
+                    speedVector.get()->xZero();
+                    *speedVector.get() += leftVector;
+                    break;
+                case SDLK_UP:
+                    break;
+                default:
+                    //speedVector.xZero();
+                    break;
+            }
+        } else if(e->type == SDL_KEYUP) {//keys pressed
+            switch (e->key.keysym.sym) {
+                case SDLK_RIGHT:
+                    //pos++;
+                    speedVector->xZero();
+                    break;
+                case SDLK_LEFT:
+                    //pos--;
+                    speedVector->xZero();
+                    break;
+                case SDLK_UP:
+                    break;
+                default:
+                    //speedVector.xZero();
+                    break;
+            }
+        }
     }
 
 

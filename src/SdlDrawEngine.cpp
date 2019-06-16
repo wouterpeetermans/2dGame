@@ -34,6 +34,7 @@ namespace SDLSpace {
                 }
             }
         }
+        eventObservers = std::make_shared<std::list<ISdlEventListener*>>();
         defaultRenderTexture = CreateTexture(1500,6144);
         SDL_SetRenderTarget(screenRenderer,defaultRenderTexture);
     }
@@ -85,10 +86,12 @@ namespace SDLSpace {
 //            startTime = SDL_GetTicks();//get wath time we started to cap the framerate
 //
 //            std::shared_ptr<std::queue<std::shared_ptr<GameSpace::InputEvent>>> eventQueue(new std::queue<std::shared_ptr<GameSpace::InputEvent>>());
-        while (SDL_PollEvent(&e) !=
-               0) {//a loop to go over all the events the user managed to create in a fraction of a second
+        while (SDL_PollEvent(&e) != 0) {//a loop to go over all the events the user managed to create in a fraction of a second
             if (e.type == SDL_QUIT) { //now I am able to use the litle cross on top of the window
                 return 1;
+            }
+            for(ISdlEventListener* l : *eventObservers){
+                l->onEvent(&e);
             }
 //                //held.GetKeys(&e);//todo: implement the filling of the queue fully with events from sdl.
 //                eventQueue->push(std::shared_ptr<GameSpace::InputEvent>(new GameSpace::InputEvent(GameSpace::Backward,GameSpace::Pressed)));
@@ -98,7 +101,7 @@ namespace SDLSpace {
         SDL_Rect vieuwPortRect, minimapRect, trackRect;
         vieuwPortRect.h = 2048;
         vieuwPortRect.w = 1500;
-        vieuwPortRect.x = 0; // todo make depend on window size
+        vieuwPortRect.x = 0;
         vieuwPortRect.y = 4096;
         minimapRect.h = 512;
         minimapRect.w = 125;
@@ -144,6 +147,12 @@ namespace SDLSpace {
         return SDL_GetTicks();
     }
 
+    void SdlDrawEngine::subscribeToEvents(ISdlEventListener* listener) {
+        eventObservers->push_back(listener);
+    }
 
+    void SdlDrawEngine::unSubscribeFromEvents(ISdlEventListener* listener) {
+        eventObservers->remove(listener);
+    }
 }
 

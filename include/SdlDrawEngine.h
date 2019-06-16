@@ -9,6 +9,10 @@
 #include "SDL2/SDL_image.h"
 #include "DrawEngine.h"
 #include <string>
+#include <list>
+#include <memory>
+//#include <boost/exception/detail/shared_ptr.hpp>
+#include "ISdlEventListener.h"
 
 #define window_Height 576 //!<set the height of the window
 #define window_Width 1024 //!<set the width of the window
@@ -36,10 +40,15 @@ namespace SDLSpace {
 
         int getTimeMs();
 
+        void subscribeToEvents(ISdlEventListener* listener);
+
+        void unSubscribeFromEvents(ISdlEventListener* listener);
+
     private:
         SDL_Window* window; //!< this wil be the pointer to the SDL window we are using
         SDL_Renderer* screenRenderer; //!< pointer to the renderer of window
         SDL_Texture* defaultRenderTexture;
+        std::shared_ptr<std::list<ISdlEventListener*>> eventObservers;
 
     };
 }

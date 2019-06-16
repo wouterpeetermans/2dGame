@@ -10,12 +10,14 @@
 
 namespace SDLSpace{
 
-class SdlPlayer : public GameSpace::Player {
+class SdlPlayer : public GameSpace::Player ,public ISdlEventListener {
     public:
         explicit SdlPlayer(std::shared_ptr<SdlDrawEngine>, int beginSpeed);
         void Update(int timeTook) override;
         ~SdlPlayer() override;
 
+private:
+    void onEvent(SDL_Event* e) override;
 
 
 private:
