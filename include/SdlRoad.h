@@ -7,13 +7,13 @@
 
 
 #include "SdlDrawEngine.h"
-#include "Background1.h"
+#include "Road.h"
 
 namespace SDLSpace{
-class SdlBackground1 : public GameSpace::Background1 {
+class SdlRoad : public GameSpace::Road {
 public:
-    SdlBackground1(std::shared_ptr<GameObject> player, std::shared_ptr<SdlDrawEngine> drawEngine);
-    ~SdlBackground1() override;
+    SdlRoad(std::shared_ptr<GameObject> player, std::shared_ptr<SdlDrawEngine> drawEngine);
+    ~SdlRoad() override;
 
 
     void Update(int TimeTook) override;

@@ -16,7 +16,7 @@ namespace GameSpace{
 
     }
 
-    Car::Car(int Xpos, int Ypos) : GameObject(Xpos, Ypos) {
+    Car::Car(int Xpos, int Ypos) : MovingObject(Xpos, Ypos) {
 
     }
 

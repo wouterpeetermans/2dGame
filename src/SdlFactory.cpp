@@ -3,7 +3,7 @@
 //
 
 
-#include "SdlBackground1.h"
+#include "SdlRoad.h"
 #include "SdlCar.h"
 #include "SdlFactory.h"
 
@@ -27,7 +27,7 @@ namespace SDLSpace {
     }
 
     std::shared_ptr<GameSpace::GameObject> SdlFactory::CreateBackground1(std::shared_ptr<GameSpace::GameObject> player) {
-        return std::make_shared<SdlBackground1>(player,drawEngine);
+        return std::make_shared<SdlRoad>(player,drawEngine);
     }
 
 //    std::shared_ptr<GameSpace::DrawEngine> SdlFactory::CreateGameLoop() {

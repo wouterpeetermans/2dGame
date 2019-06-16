@@ -2,23 +2,23 @@
 // Created by wouter on 6/16/19.
 //
 
-#include <include/SdlBackground1.h>
+#include <include/SdlRoad.h>
 
-#include "SdlBackground1.h"
+#include "SdlRoad.h"
 
 namespace SDLSpace {
 
 
-    void SdlBackground1::Update(int timeTook) {
-        GameSpace::Background1::Update(timeTook);
+    void SdlRoad::Update(int timeTook) {
+        GameSpace::Road::Update(timeTook);
         this->srcRect.y = 2048 -((player->getYpos() - 2000) / 5) % 2048;
         draw(drawEngine->getRenderer());
     }
 
-    SdlBackground1::SdlBackground1(
+    SdlRoad::SdlRoad(
             std::shared_ptr<GameObject> player,
             std::shared_ptr<SdlDrawEngine> drawEngine)
-            : GameSpace::Background1(player) {
+            : GameSpace::Road(player) {
         this->drawEngine = drawEngine;
         this->sourceTexture = drawEngine->LoadTexture("sprites/RoadTexture.png");
         this->totalTexture = drawEngine->CreateTexture(1500, 8192);
@@ -51,12 +51,12 @@ namespace SDLSpace {
         this->posRect.y = 0;
     }
 
-    SdlBackground1::~SdlBackground1() {
+    SdlRoad::~SdlRoad() {
         SDL_DestroyTexture(sourceTexture);
         SDL_DestroyTexture(totalTexture);
     }
 
-    void SdlBackground1::draw(SDL_Renderer* renderer) {
+    void SdlRoad::draw(SDL_Renderer* renderer) {
         SDL_RenderCopy(renderer, totalTexture, &srcRect, &posRect);
     }
 

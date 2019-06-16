@@ -6,12 +6,12 @@
 #define INC_2DGAME_PLAYER_H
 
 
-#include "GameObject.h"
+#include "MovingObject.h"
 
 namespace GameSpace{
-    class Player : public GameObject {
+    class Player : public MovingObject {
     public:
-        Player() : GameObject(2000,0){};
+        Player() : MovingObject(2000,0){};
         virtual void Update(int timeTook) override;
     };
 }

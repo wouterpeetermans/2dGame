@@ -7,11 +7,12 @@
 
 
 #include "Player.h"
+#include "StaticObject.h"
 
 namespace GameSpace{
-    class Background1 : public GameObject {
+    class Road : public StaticObject  {
     public:
-        explicit Background1(std::shared_ptr<GameObject> player);
+        explicit Road(std::shared_ptr<GameObject> player);
 
         void Update(int timeTook) override;
 

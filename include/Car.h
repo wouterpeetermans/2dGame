@@ -6,10 +6,10 @@
 #define INC_2DGAME_CAR_H
 
 
-#include "GameObject.h"
+#include "MovingObject.h"
 
 namespace GameSpace{
-    class Car: public GameObject {
+    class Car: public MovingObject {
     public:
         Car(int Xpos, int Ypos);
         virtual ~Car() override;

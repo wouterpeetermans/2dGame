@@ -8,7 +8,7 @@
 
 namespace SDLSpace {
 
-    SdlCar::SdlCar(std::shared_ptr<SdlDrawEngine> drawEngine, int Xpos, int Ypos) : Car(Xpos,Ypos) {
+    SdlCar::SdlCar(std::shared_ptr<SdlDrawEngine> drawEngine, int Xpos, int Ypos) : Car(Xpos, Ypos) {
         this->drawEngine = drawEngine;
         this->carSheet = drawEngine->LoadTexture("sprites/cars/Car.png");
         this->posRect.x = Xpos;
@@ -23,19 +23,18 @@ namespace SDLSpace {
     }
 
     void SdlCar::Update(int timeTook) {
-        Ypos+=200;//todo remove
+        Ypos += 50;//todo remove
         Car::Update(timeTook);
         draw(drawEngine->getRenderer());
     }
 
-    void SdlCar::draw(SDL_Renderer * renderer) {
-        SDL_RenderCopy(renderer,carSheet, &srcRect, &posRect);
+    void SdlCar::draw(SDL_Renderer* renderer) {
+        SDL_RenderCopy(renderer, carSheet, &srcRect, &posRect);
     }
 
     SdlCar::~SdlCar() {
         SDL_DestroyTexture(carSheet);
     }
-
 
 
 }
