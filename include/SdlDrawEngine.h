@@ -36,7 +36,7 @@ namespace SDLSpace {
 
         SDL_Point convertGameToScreenCoordinates(int xPos, int yPos);
 
-        int getTimeMs();
+        int getTimeMs() override;
 
         void subscribeToEvents(ISdlEventListener* listener);
 
