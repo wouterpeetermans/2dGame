@@ -8,24 +8,12 @@
 
 namespace GameSpace {
 
-    //! InputEnum
-    /*! This Enum holds possible inputs that can be coupled to input of choice */
-    enum InputEnum{
-        Forward,
-        Backward,
-        Left,
-        Right,
-        Jump,
-        Duck,
-        Extra1,
-        Extra2
-    };
-
-    //! InputStateEnum
-    /*! This enum tells what the event on the input was */
-    enum InputStateEnum {
-        Pressed,
-        Released
+    //! CollisionEnum
+    /*! This Enum holds the types of collisions the player can encounter */
+    enum CollisionEnum {
+        powerUp,
+        damage,
+        crash
     };
 }
 

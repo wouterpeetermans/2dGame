@@ -5,8 +5,7 @@
 #ifndef INC_2DGAME_GAMELOOPCONTROLLER_H
 #define INC_2DGAME_GAMELOOPCONTROLLER_H
 
-//#include "Game.h"
-#include "InputEvent.h"
+
 #include <queue>
 
 namespace GameSpace {
