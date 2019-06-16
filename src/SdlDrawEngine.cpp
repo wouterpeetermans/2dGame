@@ -96,7 +96,7 @@ namespace SDLSpace {
 
     SDL_Point SdlDrawEngine::convertGameToScreenCoordinates(int xPos, int yPos) {
         SDL_Point point;
-        point.y = 6144 - ((yPos / 5) - zeroOfset); //todo check if correct
+        point.y = 6144 - ((yPos / 5) - zeroOfset);
         point.x = 750 + (xPos / 5);
 
         return point;

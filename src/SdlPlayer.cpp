@@ -18,15 +18,14 @@ namespace SDLSpace {
         this->posRect.h = 512;
         this->posRect.w = 512;
 
-        this->Ypos = 0; //todo remove
+        this->Ypos = 0;
         this->Xpos = 0;
         drawEngine->subscribeToEvents(this);
     }
 
     void SdlPlayer::Update(int timeTook) {
-        //Ypos += 50;//todo remove
         Player::Update(timeTook);
-        drawEngine->setZeroOfset((Ypos/5)-244); //todo check correct
+        drawEngine->setZeroOfset((Ypos/5)-244);
         draw(drawEngine->getRenderer());
     }
 
