@@ -6,15 +6,15 @@
 #define INC_2DGAME_SDLCAR_H
 
 #include "SdlDrawEngine.h"
-#include "Car.h"
+#include "Player.h"
 
 namespace SDLSpace{
 
-class SdlCar : public GameSpace::Car {
+class SdlPlayer : public GameSpace::Player {
     public:
-        explicit SdlCar(std::shared_ptr<SdlDrawEngine>, int Xpos, int Ypos);
+        explicit SdlPlayer(std::shared_ptr<SdlDrawEngine>, int beginSpeed);
         void Update(int timeTook) override;
-        ~SdlCar() override;
+        ~SdlPlayer() override;
 
 
 

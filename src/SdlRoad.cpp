@@ -11,7 +11,7 @@ namespace SDLSpace {
 
     void SdlRoad::Update(int timeTook) {
         GameSpace::Road::Update(timeTook);
-        this->srcRect.y = 2048 -((player->getYpos() - 2000) / 5) % 2048;
+        this->srcRect.y = 2048 -((player->getYpos()) / 5) % 2048;
         draw(drawEngine->getRenderer());
     }
 

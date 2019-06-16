@@ -16,13 +16,11 @@ namespace SDLSpace {
 
         ~SdlFactory() override;
 
-        std::shared_ptr<GameSpace::GameObject> CreateCar(
-                int Xpos,
-                int Ypos) override;
+        std::shared_ptr<GameSpace::GameObject> CreatePlayer(int beginSpeed) override;
 
         std::shared_ptr<GameSpace::DrawEngine> GetDrawEngine() override;
 
-        std::shared_ptr<GameSpace::GameObject> CreateBackground1(
+        std::shared_ptr<GameSpace::GameObject> CreateRoad(
                 std::shared_ptr<GameSpace::GameObject> player) override;
 
     private:

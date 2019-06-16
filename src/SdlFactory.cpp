@@ -4,14 +4,14 @@
 
 
 #include "SdlRoad.h"
-#include "SdlCar.h"
+#include "SdlPlayer.h"
 #include "SdlFactory.h"
 
 #include "SdlFactory.h"
 
 namespace SDLSpace {
-    std::shared_ptr<GameSpace::GameObject> SdlFactory::CreateCar(int Xpos, int Ypos) {
-        return std::make_shared<SdlCar>(drawEngine,Xpos,Ypos);
+    std::shared_ptr<GameSpace::GameObject> SdlFactory::CreatePlayer(int beginSpeed) {
+        return std::make_shared<SdlPlayer>(drawEngine,beginSpeed);
     }
 
     SdlFactory::~SdlFactory() {
@@ -26,7 +26,7 @@ namespace SDLSpace {
         return drawEngine;
     }
 
-    std::shared_ptr<GameSpace::GameObject> SdlFactory::CreateBackground1(std::shared_ptr<GameSpace::GameObject> player) {
+    std::shared_ptr<GameSpace::GameObject> SdlFactory::CreateRoad(std::shared_ptr<GameSpace::GameObject> player) {
         return std::make_shared<SdlRoad>(player,drawEngine);
     }
 

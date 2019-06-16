@@ -31,6 +31,13 @@ namespace GameSpace {
          */
         virtual int Update()=0;
 
+
+        //!GetTime function
+        /*!
+         * this function returns the time acording to the drawing system.
+         */
+         virtual int getTimeMs()=0;
+
         //! Destructor
         /*!
         * virtual destructor ensures complete destruction

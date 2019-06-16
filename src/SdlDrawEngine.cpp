@@ -34,7 +34,7 @@ namespace SDLSpace {
                 }
             }
         }
-        defaultRenderTexture = CreateTexture(1500,5632);
+        defaultRenderTexture = CreateTexture(1500,6144);
         SDL_SetRenderTarget(screenRenderer,defaultRenderTexture);
     }
 
@@ -130,7 +130,7 @@ namespace SDLSpace {
 
     SDL_Point SdlDrawEngine::convertGameToScreenCoordinates(int xPos, int yPos) {
         SDL_Point point;
-        point.y = 2048 + (yPos / 5);
+        point.y = 6144 - (yPos / 5);
         point.x = 750 + (xPos / 5);
 
         return point;
@@ -138,6 +138,10 @@ namespace SDLSpace {
 
     void SdlDrawEngine::resetRendererTexture() {
         SDL_SetRenderTarget(screenRenderer,defaultRenderTexture);
+    }
+
+    int SdlDrawEngine::getTimeMs() {
+        return SDL_GetTicks();
     }
 
 

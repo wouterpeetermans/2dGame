@@ -34,6 +34,8 @@ namespace SDLSpace {
 
         SDL_Point convertGameToScreenCoordinates(int xPos, int yPos);
 
+        int getTimeMs();
+
     private:
         SDL_Window* window; //!< this wil be the pointer to the SDL window we are using
         SDL_Renderer* screenRenderer; //!< pointer to the renderer of window

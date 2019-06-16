@@ -11,7 +11,7 @@
 namespace GameSpace{
     class Player : public MovingObject {
     public:
-        Player() : MovingObject(2000,0){};
+        Player(int beginSpeed);
         virtual void Update(int timeTook) override;
     };
 }

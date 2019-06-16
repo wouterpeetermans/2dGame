@@ -13,9 +13,9 @@
 namespace GameSpace {
     class AFactory {
     public:
-        virtual std::shared_ptr<GameObject> CreateCar(int Xpos, int Ypos)=0;
+        virtual std::shared_ptr<GameSpace::GameObject> CreatePlayer(int beginSpeed) =0;
         virtual std::shared_ptr<DrawEngine> GetDrawEngine()=0;
-        virtual std::shared_ptr<GameObject> CreateBackground1(std::shared_ptr<GameObject> player)=0;
+        virtual std::shared_ptr<GameObject> CreateRoad(std::shared_ptr<GameObject> player)=0;
         virtual ~AFactory()= default;
     };
 }
