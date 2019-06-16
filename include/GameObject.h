@@ -8,19 +8,18 @@
 #include <memory>
 #include <list>
 
-namespace GameSpace{
+namespace GameSpace {
     class GameObject {
     public:
         GameObject(int Xpos, int Ypos);
-        virtual void Update(int timeTook) =0;
-        virtual ~GameObject()= default;
-        virtual void DetectCollisions(std::shared_ptr<std::list<std::shared_ptr<GameObject>>> ColliderList )=0;
-        virtual bool HasCollision(std::shared_ptr<GameObject> object)=0;
+
+        virtual void Update(int timeTook) = 0;
+
+        virtual ~GameObject() = default;
 
         int getXpos() const;
 
         int getYpos() const;
-
 
 
     protected:

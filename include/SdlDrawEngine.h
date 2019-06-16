@@ -14,11 +14,11 @@
 #define window_Width 1024 //!<set the width of the window
 
 namespace SDLSpace {
-    class SDLDrawEngine : public GameSpace::DrawEngine {
+    class SdlDrawEngine : public GameSpace::DrawEngine {
     public:
-        SDLDrawEngine();
+        SdlDrawEngine();
 
-        ~SDLDrawEngine() override;
+        ~SdlDrawEngine() override;
 
         int Update() override;
 
@@ -28,11 +28,17 @@ namespace SDLSpace {
 
         SDL_Renderer* getRenderer();
 
+        void resetRendererTexture();
+
         SDL_Texture* CreateTexture(int width, int height);
 
+        SDL_Point convertGameToScreenCoordinates(int xPos, int yPos);
+
     private:
-        SDL_Window *window; //!< this wil be the pointer to the SDL window we are using
-        SDL_Renderer *screenRenderer; //!< pointer to the renderer of window
+        SDL_Window* window; //!< this wil be the pointer to the SDL window we are using
+        SDL_Renderer* screenRenderer; //!< pointer to the renderer of window
+        SDL_Texture* defaultRenderTexture;
+
     };
 }
 

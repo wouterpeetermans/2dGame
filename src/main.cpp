@@ -1,14 +1,14 @@
 
 
 #include "AFactory.h"
-#include "SDLFactory.h"
+#include "SdlFactory.h"
 #include "Game.h"
 #include <memory>
 
 int main(){
-    auto factory = std::make_shared<SDLSpace::SDLFactory>();
+    auto factory = std::make_shared<SDLSpace::SdlFactory>();
     auto game = GameSpace::Game(factory);
-    game.Init();
+    game.initialize();
     game.Run();
     game.Quit();
 }

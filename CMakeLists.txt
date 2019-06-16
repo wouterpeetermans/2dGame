@@ -31,5 +31,5 @@ file(GLOB all_SRCS
         "${PROJECT_SOURCE_DIR}/src/*.c"
         )
 
-add_executable(${PROJECT_NAME} ${all_SRCS} src/Background1.cpp include/Background1.h src/Player.cpp include/Player.h src/SDLBackground1.cpp include/SDLBackground1.h)
+add_executable(${PROJECT_NAME} ${all_SRCS} src/MovingObject.cpp include/MovingObject.h src/SpeedVector.cpp include/SpeedVector.h)
 target_link_libraries(${PROJECT_NAME} SDL2::SDL2 ${SDL2_IMAGE_LIBRARIES})

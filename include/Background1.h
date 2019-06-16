@@ -6,7 +6,6 @@
 #define INC_2DGAME_BACKGROUND_H
 
 
-#include "GameObject.h"
 #include "Player.h"
 
 namespace GameSpace{

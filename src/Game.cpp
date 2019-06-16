@@ -8,18 +8,21 @@
 namespace GameSpace {
     Game::Game(std::shared_ptr<AFactory> factory) {
         this->factory = factory;
-    }
-
-
-    void Game::Init() {
         this->drawEngine = factory->GetDrawEngine();
         drawEngine->Init();
     }
 
+
+    void Game::initialize() {
+
+    }
+
     void Game::Run() {
         bool quit = false;
-        std::shared_ptr<GameObject> testcar = factory->CreateCar(0,0);
-        while (!drawEngine->Update()){
+        std::shared_ptr<GameObject> testcar = factory->CreateCar(0, 0);
+        std::shared_ptr<GameObject> backdrop = factory->CreateBackground1(testcar);
+        while (!drawEngine->Update()) {
+            backdrop->Update(0);
             testcar->Update(0);
         }
     }

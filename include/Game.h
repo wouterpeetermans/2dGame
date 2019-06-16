@@ -21,7 +21,7 @@ namespace GameSpace{
     class Game {
     public:
         explicit Game(std::shared_ptr<AFactory> factory);
-        void Init();
+        void initialize();
         void Run();
         void Quit();
         ~Game();
