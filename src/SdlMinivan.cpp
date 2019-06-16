@@ -8,7 +8,7 @@
 namespace SDLSpace{
     void SdlMinivan::Update(int timeTook) {
         MiniVan::Update(timeTook);
-        SDL_Point location = drawEngine->convertGameToScreenCoordinates(Xpos,Ypos);
+        SDL_Point location = drawEngine->convertGameToScreenCoordinates(xPos,yPos);
         destinationRect.x = location.x - (destinationRect.w/2);
         destinationRect.y = location.y - (destinationRect.h/2);
         draw(drawEngine->getRenderer());

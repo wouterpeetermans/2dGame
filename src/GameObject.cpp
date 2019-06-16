@@ -9,17 +9,17 @@
 namespace GameSpace {
 
     GameObject::GameObject(int Xpos, int Ypos) {
-        this->Xpos = Xpos;
-        this->Ypos = Ypos;
+        this->xPos = Xpos;
+        this->yPos = Ypos;
         isDestroyedBool = false;
     }
 
-    int GameObject::getXpos() const {
-        return Xpos;
+    int GameObject::getxPos() const {
+        return xPos;
     }
 
-    int GameObject::getYpos() const {
-        return Ypos;
+    int GameObject::getyPos() const {
+        return yPos;
     }
 
     bool GameObject::isDestroyed() {

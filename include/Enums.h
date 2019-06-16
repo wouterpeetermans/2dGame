@@ -11,9 +11,10 @@ namespace GameSpace {
     //! CollisionEnum
     /*! This Enum holds the types of collisions the player can encounter */
     enum CollisionEnum {
-        powerUp,
-        damage,
-        crash
+        POWER_UP,
+        DAMAGE,
+        CRASH,
+        NONE
     };
 }
 

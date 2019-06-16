@@ -18,19 +18,19 @@ namespace SDLSpace {
         this->posRect.h = 512;
         this->posRect.w = 512;
 
-        this->Ypos = 0;
-        this->Xpos = 0;
+        this->yPos = 0;
+        this->xPos = 0;
         drawEngine->subscribeToEvents(this);
     }
 
     void SdlPlayer::Update(int timeTook) {
         Player::Update(timeTook);
-        drawEngine->setZeroOfset((Ypos/5)-244);
+        drawEngine->setZeroOfset((yPos/5)-244);
         draw(drawEngine->getRenderer());
     }
 
     void SdlPlayer::draw(SDL_Renderer* renderer) {
-        SDL_Point location = drawEngine->convertGameToScreenCoordinates(this->Xpos, this->Ypos);
+        SDL_Point location = drawEngine->convertGameToScreenCoordinates(this->xPos, this->yPos);
         this->posRect.x = location.x - (posRect.w/2);
         this->posRect.y = 5900 - (posRect.h/2);
         SDL_RenderCopy(renderer, carSheet, NULL, &posRect);

@@ -8,8 +8,8 @@
 
 namespace GameSpace{
     void MovingObject::Update(int timeTook) {
-        this->Ypos += speedVector->ySpeed()*timeTook;
-        this->Xpos += speedVector->xSpeed()*timeTook;
+        this->yPos += speedVector->ySpeed()*timeTook;
+        this->xPos += speedVector->xSpeed()*timeTook;
     }
 
     MovingObject::MovingObject(int xPos, int yPos) : GameObject(xPos, yPos) {

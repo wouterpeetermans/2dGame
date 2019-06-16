@@ -37,7 +37,7 @@ namespace GameSpace {
     }
 
     void GameScene::randomCarSpawner(int xPos) {
-        objectList->push_back(factory->CreateMiniVan(xPos,playerObject->getYpos()+30720,4));
+        objectList->push_back(factory->CreateMiniVan(xPos, playerObject->getyPos()+30720,4));
     }
 
 

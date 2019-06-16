@@ -17,17 +17,19 @@ namespace GameSpace {
 
         virtual ~GameObject() = default;
 
-        int getXpos() const;
+        int getxPos() const;
 
-        int getYpos() const;
+        int getyPos() const;
+
+
 
         bool isDestroyed();
 
 
     protected:
         void setDestroyed();
-        int Xpos;
-        int Ypos;
+        int xPos;
+        int yPos;
     private:
         bool isDestroyedBool;
     };
