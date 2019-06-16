@@ -31,5 +31,5 @@ file(GLOB all_SRCS
         "${PROJECT_SOURCE_DIR}/src/*.c"
         )
 
-add_executable(${PROJECT_NAME} ${all_SRCS} include/ISdlEventListener.h)
+add_executable(${PROJECT_NAME} ${all_SRCS} include/ISdlEventListener.h src/SdlMinivan.cpp include/SdlMinivan.h)
 target_link_libraries(${PROJECT_NAME} SDL2::SDL2 ${SDL2_IMAGE_LIBRARIES})

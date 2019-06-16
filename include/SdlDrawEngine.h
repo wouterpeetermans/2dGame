@@ -44,11 +44,14 @@ namespace SDLSpace {
 
         void unSubscribeFromEvents(ISdlEventListener* listener);
 
+        void setZeroOfset(int ofset);
+
     private:
         SDL_Window* window; //!< this wil be the pointer to the SDL window we are using
         SDL_Renderer* screenRenderer; //!< pointer to the renderer of window
         SDL_Texture* defaultRenderTexture;
         std::shared_ptr<std::list<ISdlEventListener*>> eventObservers;
+        int zeroOfset;
 
     };
 }

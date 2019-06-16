@@ -16,6 +16,7 @@ namespace GameSpace {
         virtual std::shared_ptr<GameSpace::GameObject> CreatePlayer(int beginSpeed) =0;
         virtual std::shared_ptr<DrawEngine> GetDrawEngine()=0;
         virtual std::shared_ptr<GameObject> CreateRoad(std::shared_ptr<GameObject> player)=0;
+        virtual std::shared_ptr<GameObject> CreateMiniVan(int xPos, int yPos, int speed)=0;
         virtual ~AFactory()= default;
     };
 }

@@ -1,7 +1,7 @@
 //
 // Created by wouter on 3/4/19.
 //
-#include "Car.h"
+#include "MiniVan.h"
 
 #include "Game.h"
 
@@ -20,6 +20,7 @@ namespace GameSpace {
     void Game::Run() {
         bool quit = false;
         std::shared_ptr<GameObject> testcar = factory->CreatePlayer(7);
+        std::shared_ptr<GameObject> testvan = factory->CreateMiniVan(0,0,7);
         std::shared_ptr<GameObject> backdrop = factory->CreateRoad(testcar);
         bool isQuit = false;
         int startTime, stopTime, timeTook;
@@ -29,6 +30,7 @@ namespace GameSpace {
             startTime = drawEngine->getTimeMs();
             backdrop->Update(timeTook);
             testcar->Update(timeTook);
+            testvan->Update(timeTook);
             if(drawEngine->Update())
                 isQuit = true;
             stopTime = drawEngine->getTimeMs();

@@ -9,10 +9,10 @@
 #include "MovingObject.h"
 
 namespace GameSpace{
-    class Car: public MovingObject {
+    class MiniVan: public MovingObject {
     public:
-        Car(int Xpos, int Ypos);
-        virtual ~Car() override;
+        explicit MiniVan(int Xpos, int Ypos, int speed);
+        virtual ~MiniVan() override;
 
         virtual void Update(int timeTook) override;
 

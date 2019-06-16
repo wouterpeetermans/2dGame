@@ -23,6 +23,8 @@ namespace SDLSpace {
         std::shared_ptr<GameSpace::GameObject> CreateRoad(
                 std::shared_ptr<GameSpace::GameObject> player) override;
 
+        std::shared_ptr<GameSpace::GameObject> CreateMiniVan(int xPos, int yPos, int speed) override;
+
     private:
         std::shared_ptr<SdlDrawEngine> drawEngine;
     };
