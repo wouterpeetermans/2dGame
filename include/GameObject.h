@@ -21,10 +21,15 @@ namespace GameSpace {
 
         int getYpos() const;
 
+        bool isDestroyed();
+
 
     protected:
+        void setDestroyed();
         int Xpos;
         int Ypos;
+    private:
+        bool isDestroyedBool;
     };
 }
 
