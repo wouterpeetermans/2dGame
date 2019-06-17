@@ -21,6 +21,8 @@ namespace GameSpace {
         void xInvert();
         void yInvert();
         void operator+= (const SpeedVector&);
+        void setxSpeed(int a);
+        void setySpeed(int a);
         SpeedVector operator* (double);
     };
 }

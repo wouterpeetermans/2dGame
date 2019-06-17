@@ -12,7 +12,12 @@ namespace GameSpace{
     class Player : public MovingObject {
     public:
         Player(int beginSpeed);
-        virtual void Update(int timeTook) override;
+        void Update(int timeTook) override;
+
+        void DetectCollisions(std::shared_ptr<std::list<std::shared_ptr<GameObject>>> coliderList) override;
+
+    private:
+        int health;
     };
 }
 

@@ -14,7 +14,7 @@ namespace GameSpace{
          * This function is to be called periodically to update the members of the scene.
          * As long as it is being called it will show the current scene.
          * @param timeTook : The time since the last time calling this function.
-         * @return returns 0 if everything is normal. Calls 1 to end.
+         * @return returns 0 if everything is normal. returns score or 1 if done.
          */
         virtual int Update(int timeTook)=0;
     };

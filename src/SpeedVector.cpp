@@ -2,6 +2,8 @@
 // Created by wouter on 6/16/19.
 //
 
+#include <include/SpeedVector.h>
+
 #include "SpeedVector.h"
 
 namespace GameSpace{
@@ -48,5 +50,13 @@ namespace GameSpace{
         result.x = number*x;
         result.y = number*y;
         return result;
+    }
+
+    void SpeedVector::setxSpeed(int a) {
+        this->x = a;
+    }
+
+    void SpeedVector::setySpeed(int a) {
+        this->y = a;
     }
 }

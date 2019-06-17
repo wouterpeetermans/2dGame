@@ -21,8 +21,8 @@ namespace SDLSpace{
     SdlMinivan::SdlMinivan(std::shared_ptr<SdlDrawEngine> drawEngine, int xPos, int yPos, int speed)
     : MiniVan(xPos, yPos, speed) {
         this->drawEngine = drawEngine;
-        this->destinationRect.h = 512;
-        this->destinationRect.w = 512;
+        this->destinationRect.h = 740;
+        this->destinationRect.w = 740;
         this->destinationRect.x = 0;
         this->destinationRect.y = 0;
         this->vanTexture = this->drawEngine->LoadTexture("sprites/cars/Mini_van.png");

@@ -9,17 +9,19 @@ namespace GameSpace {
 
     int GameScene::Update(int timeTook) {
         for (int i = 0; i < 3; ++i) {
-            laneTimers[i] += timeTook;
-            if(laneTimers[i] > laneTimerTresholds[i]){
-                laneTimers[i] = 0;
-                laneTimerTresholds[i] = rand()%7000+3000;
+
+            if(playerObject->getyPos() > laneTimerTresholds[i]){
+                laneTimerTresholds[i] = playerObject->getyPos() + rand()%80000+3000;
                 randomCarSpawner(-2500 + (i * 2500));
             }
         }
         for(std::shared_ptr<GameObject> object : *objectList){
             object->Update(timeTook);
         }
-        return 0;
+        playerObject->DetectCollisions(objectList);
+        if(playerObject->isDestroyed())
+            return playerObject->getyPos();
+        return 0;//todo clean up objects that are no longer on screen.
     }
 
     GameScene::GameScene(std::shared_ptr<AFactory> factory) {
@@ -37,7 +39,13 @@ namespace GameSpace {
     }
 
     void GameScene::randomCarSpawner(int xPos) {
-        objectList->push_back(factory->CreateMiniVan(xPos, playerObject->getyPos()+30720,4));
+        int selector = rand()%100;
+        if(selector > 70){
+            objectList->push_back(factory->CreateMiniVan(xPos, playerObject->getyPos()+30720,4));
+        } else {
+            objectList->push_back(factory->CreatePoliceCar(xPos, playerObject->getyPos()+30720,4,objectList));
+        }
+
     }
 
 

@@ -14,6 +14,9 @@ namespace GameSpace{
         MovingObject(int xPos, int yPos);
         MovingObject(int xPos, int yPos, std::shared_ptr<SpeedVector> speedVector);
         void Update(int timeTook) override;
+
+        CollisionEnum Collides(const GameObject* object) override;
+
         std::shared_ptr<SpeedVector> speedVector;
     };
 }

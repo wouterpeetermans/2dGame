@@ -18,7 +18,8 @@ namespace GameSpace{
 
     MiniVan::MiniVan(int Xpos, int Ypos, int speed)
     : MovingObject(Xpos, Ypos, std::make_shared<SpeedVector>(0,speed)) {
-
+        this->setHeight(2900);
+        this->setWidth(1100);
     }
 
 }

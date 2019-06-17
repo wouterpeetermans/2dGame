@@ -14,6 +14,8 @@ namespace GameSpace {
         POWER_UP,
         DAMAGE,
         CRASH,
+        SOLID,
+        EVENT,
         NONE
     };
 }

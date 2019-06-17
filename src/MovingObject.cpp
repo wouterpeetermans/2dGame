@@ -23,6 +23,12 @@ namespace GameSpace{
             : GameObject(xPos,yPos) {
         this->speedVector = speedVector;
     }
+
+    CollisionEnum MovingObject::Collides(const GameObject* object) {
+        if(GameObject::Collides(object) == EVENT){
+            return CRASH;
+        }
+    }
 }
 
 
