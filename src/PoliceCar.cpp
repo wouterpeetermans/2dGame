@@ -14,10 +14,15 @@ namespace GameSpace{
         this->factory = factory;
         this->setHeight(2100);
         this->setWidth(900);
+        this->nextDropPoint = yPos + rand()%5000;
     }
 
     void PoliceCar::Update(int timeTook) {
         MovingObject::Update(timeTook);
+        if(yPos >= nextDropPoint){
+            nextDropPoint = yPos + rand()%5000;
+            objectList->push_back(factory->CreateBomb(xPos,yPos));
+        }
         //todo make this one drop some stuff
     }
 }

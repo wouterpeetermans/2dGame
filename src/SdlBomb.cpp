@@ -11,11 +11,15 @@ namespace SDLSpace {
 
     SdlBomb::SdlBomb(std::shared_ptr<SdlDrawEngine> drawEngine, int Xpos, int Ypos) : Bomb(Xpos, Ypos) {
         this->drawEngine = drawEngine;
-        this->destinationRect.h = 740;
-        this->destinationRect.w = 740;
+        this->destinationRect.h = 256;
+        this->destinationRect.w = 256;
         this->destinationRect.x = 0;
         this->destinationRect.y = 0;
-        this->bombTexture = this->drawEngine->LoadTexture("sprites/cars/Mini_van.png");
+        this->sourceRect.h = 256;
+        this->sourceRect.w = 256;
+        this->sourceRect.x = 0;
+        this->sourceRect.y = 0;
+        this->bombTexture = this->drawEngine->LoadTexture("sprites/bomb_anim.png");
     }
 
     void SdlBomb::Update(int timeTook) {
@@ -31,6 +35,6 @@ namespace SDLSpace {
     }
 
     void SdlBomb::draw(SDL_Renderer* renderer) {
-
+        SDL_RenderCopy(renderer,bombTexture,&sourceRect,&destinationRect);
     }
 }

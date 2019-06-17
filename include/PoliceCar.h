@@ -19,6 +19,7 @@ namespace GameSpace {
     private:
         std::shared_ptr<std::list<std::shared_ptr<GameObject>>> objectList;
         std::shared_ptr<AFactory> factory;
+        int nextDropPoint;
     };
 }
 
