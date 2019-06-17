@@ -27,8 +27,14 @@ namespace SDLSpace {
 
         std::shared_ptr<GameSpace::Scene> CreateGameScene(std::shared_ptr<AFactory> factory) override;
 
-        std::shared_ptr<GameSpace::GameObject> CreatePoliceCar(int xPos, int yPos, int speed,
-                                                               std::shared_ptr<std::list<std::shared_ptr<GameSpace::GameObject>>> objectList) override;
+        std::shared_ptr<GameSpace::GameObject> CreateBomb(int xPos, int yPos) override;
+
+        std::shared_ptr<GameSpace::GameObject> CreatePoliceCar(
+                int xPos,
+                int yPos,
+                int speed,
+                std::shared_ptr<std::list<std::shared_ptr<GameSpace::GameObject>>> objectList,
+                std::shared_ptr<AFactory> factory) override;
 
     private:
         std::shared_ptr<SdlDrawEngine> drawEngine;

@@ -8,6 +8,7 @@
 
 #include "PoliceCar.h"
 #include "SdlDrawEngine.h"
+#include "AFactory.h"
 
 namespace SDLSpace {
     class SdlPoliceCar : public GameSpace::PoliceCar {
@@ -16,11 +17,12 @@ namespace SDLSpace {
                 int xPos,
                 int yPos,
                 int speed,
-                std::shared_ptr<std::list<std::shared_ptr<GameObject>>> objectList);
+                std::shared_ptr<std::list<std::shared_ptr<GameObject>>> objectList,
+                std::shared_ptr<GameSpace::AFactory> factory);
         void Update(int timeTook) override;
+        ~SdlPoliceCar() override;
 
     private:
-        std::shared_ptr<std::list<std::shared_ptr<GameObject>>> objectList;
         void draw(SDL_Renderer* renderer);
         std::shared_ptr<SdlDrawEngine> drawEngine;
         SDL_Rect destinationRect;

@@ -9,6 +9,7 @@
 #include "SdlFactory.h"
 #include "SdlGameScene.h"
 #include "SdlPoliceCar.h"
+#include "SdlBomb.h"
 
 
 namespace SDLSpace {
@@ -44,8 +45,13 @@ namespace SDLSpace {
             int xPos,
             int yPos,
             int speed,
-            std::shared_ptr<std::list<std::shared_ptr<GameSpace::GameObject>>> objectList) {
-        return std::make_shared<SdlPoliceCar>(drawEngine, xPos, yPos, speed, objectList);
+            std::shared_ptr<std::list<std::shared_ptr<GameSpace::GameObject>>> objectList,
+            std::shared_ptr<AFactory> factory) {
+        return std::make_shared<SdlPoliceCar>(drawEngine, xPos, yPos, speed, objectList, factory);
+    }
+
+    std::shared_ptr<GameSpace::GameObject> SdlFactory::CreateBomb(int xPos, int yPos) {
+        return std::make_shared<SdlBomb>(drawEngine,xPos,yPos);
     }
 
 //    std::shared_ptr<GameSpace::DrawEngine> SdlFactory::CreateGameLoop() {

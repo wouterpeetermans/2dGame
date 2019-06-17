@@ -28,6 +28,7 @@ namespace GameSpace{
         if(GameObject::Collides(object) == EVENT){
             return CRASH;
         }
+        return NONE;
     }
 }
 

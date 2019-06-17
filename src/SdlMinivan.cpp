@@ -29,7 +29,7 @@ namespace SDLSpace{
     }
 
     SdlMinivan::~SdlMinivan() {
-
+        SDL_DestroyTexture(vanTexture);
     }
 }
 

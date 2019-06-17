@@ -10,7 +10,10 @@ namespace GameSpace{
     }
 
     CollisionEnum GameSpace::Bomb::Collides(const GameSpace::GameObject* object) {
-        GameObject::Collides(object);
+         if(GameObject::Collides(object) == EVENT){
+             return DAMAGE;
+         }
+        return NONE;
     }
 }
 

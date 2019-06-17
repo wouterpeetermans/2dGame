@@ -20,8 +20,10 @@ namespace SDLSpace{
             int xPos,
             int yPos,
             int speed,
-            std::shared_ptr<std::list<std::shared_ptr<GameSpace::GameObject>>> objectList)
-            : PoliceCar::PoliceCar(xPos,yPos,speed){
+            std::shared_ptr<std::list<std::shared_ptr<GameSpace::GameObject>>> objectList,
+            std::shared_ptr<GameSpace::AFactory> factory)
+            : PoliceCar::PoliceCar(xPos, yPos, speed, objectList,
+                                   factory) {
         this->drawEngine = drawEngine;
         this->destinationRect.h = 512;
         this->destinationRect.w = 512;
@@ -32,6 +34,10 @@ namespace SDLSpace{
 
     void SdlPoliceCar::draw(SDL_Renderer* renderer) {
         SDL_RenderCopy(renderer,vanTexture,NULL,&destinationRect);
+    }
+
+    SdlPoliceCar::~SdlPoliceCar() {
+        SDL_DestroyTexture(vanTexture);
     }
 }
 

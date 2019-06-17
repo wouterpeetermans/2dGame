@@ -24,7 +24,9 @@ namespace GameSpace {
                 int xPos,
                 int yPos,
                 int speed,
-                std::shared_ptr<std::list<std::shared_ptr<GameObject>>> objectList)=0;
+                std::shared_ptr<std::list<std::shared_ptr<GameObject>>> objectList,
+                std::shared_ptr<AFactory> factory)=0;
+        virtual std::shared_ptr<GameObject> CreateBomb(int xPos, int yPos)=0;
         virtual ~AFactory()= default;
     };
 }

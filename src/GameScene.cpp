@@ -43,7 +43,7 @@ namespace GameSpace {
         if(selector > 70){
             objectList->push_back(factory->CreateMiniVan(xPos, playerObject->getyPos()+30720,4));
         } else {
-            objectList->push_back(factory->CreatePoliceCar(xPos, playerObject->getyPos()+30720,4,objectList));
+            objectList->push_back(factory->CreatePoliceCar(xPos, playerObject->getyPos()+30720,4,objectList,factory));
         }
 
     }

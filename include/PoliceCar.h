@@ -6,13 +6,19 @@
 #define INC_2DGAME_POLICECAR_H
 
 #include "MovingObject.h"
+#include "AFactory.h"
 
 namespace GameSpace {
     class PoliceCar : public MovingObject {
     public:
-        PoliceCar(int xPos, int yPos, int speed);
+        PoliceCar(int xPos, int yPos, int speed, std::shared_ptr<std::list<std::shared_ptr<GameObject>>> objectList,
+                          std::shared_ptr<AFactory> factory);
 
         void Update(int timeTook) override;
+
+    private:
+        std::shared_ptr<std::list<std::shared_ptr<GameObject>>> objectList;
+        std::shared_ptr<AFactory> factory;
     };
 }
 

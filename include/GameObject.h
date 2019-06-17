@@ -38,9 +38,11 @@ namespace GameSpace {
 
         bool isDestroyed();
 
+        void setDestroyed();
+
 
     protected:
-        void setDestroyed();
+
         int xPos;
         int yPos;
         int width;
